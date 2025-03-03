@@ -1,0 +1,16 @@
+server:
+  port: 8080 # Port for the REST API
+
+kafka:
+  bootstrap-servers: localhost:29092 # Kafka broker address
+
+spring:
+  kafka:
+    consumer:
+      group-id: charging-transaction-service # Consumer group ID
+      auto-offset-reset: earliest # Start consuming from the earliest offset
+    producer:
+      key-serializer: org.apache.kafka.common.serialization.StringSerializer
+      value-serializer: org.apache.kafka.common.serialization.StringSerializer
+    listener:
+      ack-mode: manual # Manually acknowledge messages (optional)

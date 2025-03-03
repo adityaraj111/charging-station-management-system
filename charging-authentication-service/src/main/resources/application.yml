@@ -1,0 +1,18 @@
+server:
+  port: 8081
+
+kafka:
+  bootstrap-servers: localhost:9092
+  consumer:
+    topic: cms.authorization.requests
+  producer:
+    topic: cms.authorization.responses
+
+spring:
+  kafka:
+    consumer:
+      group-id: charging-authentication-service
+      auto-offset-reset: earliest
+    producer:
+      key-serializer: org.apache.kafka.common.serialization.StringSerializer
+      value-serializer: org.apache.kafka.common.serialization.StringSerializer
